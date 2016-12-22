@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="PID">????</Property>
+
+        <Property name="LOG_PATTERN">
+            %highlight{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} [%t] %highlight{%-5level}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=cyan, DEBUG=green bold, TRACE=blue} %logger{36} %highlight{:}{faint} %msg%n
+        </Property>
+
+    </Properties>
+
+    <Appenders>
+
+        <!-- CONSOLE LOGGER -->
+        <Console name="STDOUT" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+    </Appenders>
+
+    <!-- Log levels visibility -->
+    <!-- ===================== -->
+    <!--
+            FATAL   ERROR   WARN    INFO    DEBUG   TRACE   ALL
+    OFF
+    FATAL   X
+    ERROR   X       X
+    WARN    X       X       X
+    INFO    X       X       X       X
+    DEBUG   X       X       X       X       X
+    TRACE   X       X       X       X       X       X
+    ALL     X       X       X       X       X       X       X
+    -->
+
+    <Loggers>
+
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+
+    </Loggers>
+</Configuration>
